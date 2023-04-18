@@ -64,21 +64,29 @@ def seleccionar_llave_publica():
 # Crear la ventana principal
 ventana = Tk()
 ventana.title('RSA')
+ventana.configure(bg="white")
 
 # Crear las variables de control
 llave_publica_archivo = StringVar()
 
-# Crear los botones y etiquetas
-generar_llaves_btn = Button(ventana, text='Generar llaves', command=generar_llaves)
-cifrar_archivo_btn = Button(ventana, text='Cifrar archivo', command=cifrar_archivo)
-descifrar_archivo_btn = Button(ventana, text='Descifrar archivo', command=descifrar_archivo)
+# Crear los botones, etiquetas y descripciones
+generar_llaves_btn = Button(ventana, text='Generar llaves', command=generar_llaves, font=("Arial", 12), width=20, bg="#007FFF", fg="white")
+cifrar_archivo_btn = Button(ventana, text='Cifrar archivo', command=cifrar_archivo, font=("Arial", 12), width=20, bg="#007FFF", fg="white")
+descifrar_archivo_btn = Button(ventana, text='Descifrar archivo', command=descifrar_archivo, font=("Arial", 12), width=20, bg="#007FFF", fg="white")
 
+instruccion_generar_llaves = Label(ventana, text="Generar par de llaves pública y privada RSA", font=("Arial", 12), bg="white")
+instruccion_cifrar = Label(ventana, text="Cifrar un archivo usando la llave pública", font=("Arial", 12), bg="white")
+instruccion_descifrar = Label(ventana, text="Descifrar un archivo usando la llave privada", font=("Arial", 12), bg="white")
 
 # Posicionar los elementos
-generar_llaves_btn.grid(row=0, column=0, pady=10, padx=10)
-cifrar_archivo_btn.grid(row=1, column=0, pady=10, padx=10)
-descifrar_archivo_btn.grid(row=2, column=0, pady=10, padx=10)
+instruccion_generar_llaves.grid(row=0, column=0, padx=(20, 10), pady=10, sticky=W)
+generar_llaves_btn.grid(row=0, column=1, pady=10, padx=(0, 20))
+
+instruccion_cifrar.grid(row=1, column=0, padx=(20, 10), pady=10, sticky=W)
+cifrar_archivo_btn.grid(row=1, column=1, pady=10, padx=(0, 20))
+
+instruccion_descifrar.grid(row=2, column=0, padx=(20, 10), pady=10, sticky=W)
+descifrar_archivo_btn.grid(row=2, column=1, pady=10, padx=(0, 20))
 
 # Ejecutar la ventana
 ventana.mainloop()
-
